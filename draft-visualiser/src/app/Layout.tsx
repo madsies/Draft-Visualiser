@@ -1,18 +1,35 @@
-import { Box } from "@mui/material"
-import { Header } from "../shared/header"
+import { Box } from "@mui/material";
+import { Header } from "../shared/header";
 
+export const Layout = ({ children }: { children?: React.ReactNode }) => {
+  return (
+    <Box
+      sx={{
+        width: "100%",
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        overflowX: "hidden",
+        background: "url(ow_thumbnail.webp)",
+        backgroundSize: "cover",
 
+      }}
+    >
+      <Header />
 
-export const Layout = ({ children }: { children?: React.ReactNode }) =>
-{
-    return (
-        <Box sx={{width:"100vw", height:"100%", background:"url(ow_thumbnail.webp)"}}>
+      <Box sx={{ height: "64px" }} />
 
-            <Header/>
-
-            <Box sx={{width:"100%", maxWidth: "1200px"}}>
-                {children}
-            </Box>
-        </Box>
-    )
-}
+      <Box
+        sx={{
+          flex: 1,
+          width: "100%",
+          maxWidth: "1600px",
+          mx: "auto",
+          overflowY: "auto",
+        }}
+      >
+        {children}
+      </Box>
+    </Box>
+  );
+};
