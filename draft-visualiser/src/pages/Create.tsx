@@ -11,7 +11,7 @@ type Captain = {
   team: string;
 };
 
-type Player = {
+export type Player = {
   id: string;
   pictureUrl: string;
   name: string;

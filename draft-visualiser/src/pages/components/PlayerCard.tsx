@@ -14,17 +14,18 @@ interface PlayerCardProps
     heroes: string[];
     rank: string;
     fact: string;
+    large?: boolean;
 }
 
-export const PlayerCard = ({name, pictureUrl, team, role, secondary, heroes, rank, fact}:PlayerCardProps) =>
+export const PlayerCard = ({name, pictureUrl, team, role, secondary, heroes, rank, fact, large}:PlayerCardProps) =>
 {
     return (
-        <Card  sx={{py:2, px:1.5, m:2, alignItems:"center", width:"240px", cornerShape: "scoop", borderRadius:"25px",
+        <Card  sx={{py:2, px:1.5, m:2, alignItems:"center", width:"240px", cornerShape: "scoop", borderRadius:"25px", scale: large ? 1.5 : 1,
         background:"linear-gradient(180deg,rgba(33, 143, 254, 1) 20%, rgba(150, 155, 135, 1) 60%, rgba(249, 158, 26, 1) 100%);"}}>
             <Box sx={{display:"flex", flexDirection:"column", alignItems:"center", gap:1}}>
                 <Typography variant="h5" fontWeight={"bold"}>{name}</Typography>
                 <Box sx={{display:"flex"}}>
-                    <Avatar variant="rounded" sx={{width:125, height:125,maskImage:
+                    <Avatar variant="rounded" imgProps={{onError: () => console.error("Picture failed:", pictureUrl),}}sx={{width:125, height:125,maskImage:
     "linear-gradient(to right, transparent, black 10%, black 90%, transparent), linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)",
   maskComposite: "intersect",
   WebkitMaskImage:
