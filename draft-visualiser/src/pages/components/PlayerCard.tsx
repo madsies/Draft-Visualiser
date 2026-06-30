@@ -24,7 +24,11 @@ export const PlayerCard = ({name, pictureUrl, team, role, secondary, heroes, ran
             <Box sx={{display:"flex", flexDirection:"column", alignItems:"center", gap:1}}>
                 <Typography variant="h5" fontWeight={"bold"}>{name}</Typography>
                 <Box sx={{display:"flex"}}>
-                    <Avatar variant="rounded" sx={{width:125, height:125}} src={pictureUrl}></Avatar>
+                    <Avatar variant="rounded" sx={{width:125, height:125,maskImage:
+    "linear-gradient(to right, transparent, black 10%, black 90%, transparent), linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)",
+  maskComposite: "intersect",
+  WebkitMaskImage:
+    "linear-gradient(to right, transparent, black 10%, black 90%, transparent), linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)",}} src={pictureUrl}></Avatar>
                     <Box sx={{pl:2, display:"flex", flexDirection:"column", gap:2, justifyContent:"center"}}>   
                         <RankIcon rank={rank}/>
                         <PlayerRole role={role} secondary={secondary}/>

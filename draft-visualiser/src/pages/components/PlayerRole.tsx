@@ -5,7 +5,9 @@ interface PlayerRoleProps {
   secondary?: string;
 }
 
-const getRoleImage = (role: string) => `/roles/${role}.webp`;
+const getRoleImage = (role: string) => {
+    if (role == "Flex") return "/roles/flex.svg";
+    return `/roles/${role}.webp`};
 
 export const PlayerRole = ({ role, secondary }: PlayerRoleProps) => {
   if (typeof role !== "string") return null;

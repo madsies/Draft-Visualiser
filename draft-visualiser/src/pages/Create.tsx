@@ -24,9 +24,9 @@ type Player = {
 };
 
 const Heroes = [
-    "D.Va", "Domina", "Doomfist","Hazard","Junker Queen","Mauga","Orisa","Ramattra","Reinhardt","Roadhog","Sigma","Winston","Wrecking Ball","Zarya",
+    "Dva", "Domina", "Doomfist","Hazard","Junker Queen","Mauga","Orisa","Ramattra","Reinhardt","Roadhog","Sigma","Winston","Wrecking Ball","Zarya",
     "Ashe", "Anran", "Bastion", "Cassidy", "Echo", "Emre", "Freja", "Genji", "Hanzo", "Junkrat", "Mei", "Pharah", "Reaper", "Sierra", "Sojourn", "Soldier 76", "Sombra", "Symmetra", "Torbjorn", "Tracer", "Vendetta", "Venture",  "Widowmaker", "Shion",
-    "Ana", "Baptiste", "Brigitte", "Illari", "Kiriko", "Lifeweaver", "Lúcio", "Jetpack Cat", "Juno", "Mercy", "Mizuki", "Moira", "Zenyatta"
+    "Ana", "Baptiste", "Brigitte", "Illari", "Kiriko", "Lifeweaver", "Lúcio", "Jetpack Cat", "Juno", "Mercy", "Mizuki", "Moira", "Wuyang", "Zenyatta"
 ]
 
 const Roles = [
@@ -219,9 +219,14 @@ export const Create = () =>
     };
 
 
-    return (
-        <Box sx={{display:"flex", flexDirection:"row", maxWidth:"100%", justifyContent:"space-around", gap:2, height:"100%", m:5}}>
-            <Button component={Link} to={"/draft"}>to draft</Button>
+    return (<>
+        <Box sx={{display:"flex", m:2, mx:7, gap:2}}>
+            <Button component={Link} to={"/list"} variant="contained" color="secondary">View Players</Button>
+            <Button component={Link} to={"/draft"} variant="contained" color="secondary">Start Draft</Button>
+        </Box>
+   
+        <Box sx={{display:"flex", flexDirection:"row", maxWidth:"100%", justifyContent:"space-around", gap:2, height:"100%", mx:5}}>
+            
             {/* Adding Captains */}
             <Card sx={{width:"30%", p:2, background:"#90e57199"}}>
                 <Typography variant="h6">Captains ({captains.length})</Typography>
@@ -267,5 +272,6 @@ export const Create = () =>
                 <DataGrid rows={players} columns={playerColumns} processRowUpdate={handleProcessRowUpdatePlayer}/>
             </Card>
         </Box>
+         </>
     )
 }
