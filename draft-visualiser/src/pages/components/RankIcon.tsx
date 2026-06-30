@@ -3,14 +3,26 @@ import { Avatar } from "@mui/material"
 interface RankProps
 {
     rank: string;
+    small: boolean;
 }
 
 
-export const RankIcon = ({ rank }: RankProps) => {
+export const RankIcon = ({ rank, small }: RankProps) => {
     if (typeof rank !== "string") return null;
 
-    const width = 50;
-    const height = 50;
+    var width; 
+    var height; 
+    if (!small)
+    {   
+        width = 50;
+        height = 50;
+    }
+    else
+    {
+        width = 20;
+        height = 20;
+    }
+    
 
     const rankLower = rank.toLowerCase();
 

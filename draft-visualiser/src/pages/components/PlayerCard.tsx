@@ -30,8 +30,8 @@ export const PlayerCard = ({name, pictureUrl, team, role, secondary, heroes, ran
   WebkitMaskImage:
     "linear-gradient(to right, transparent, black 10%, black 90%, transparent), linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)",}} src={pictureUrl}></Avatar>
                     <Box sx={{pl:2, display:"flex", flexDirection:"column", gap:2, justifyContent:"center"}}>   
-                        <RankIcon rank={rank}/>
-                        <PlayerRole role={role} secondary={secondary}/>
+                        <RankIcon rank={rank} small={false}/>
+                        <PlayerRole role={role} secondary={secondary} small={false}/>
                     </Box>
                 </Box>
             </Box>

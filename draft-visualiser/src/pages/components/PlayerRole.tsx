@@ -3,23 +3,41 @@ import { Avatar, Box } from "@mui/material";
 interface PlayerRoleProps {
   role: string;
   secondary?: string;
+  small: boolean;
 }
 
 const getRoleImage = (role: string) => {
-    if (role == "Flex") return "/roles/flex.svg";
+    if (role == "Flex") return "/roles/Flex.webp";
     return `/roles/${role}.webp`};
 
-export const PlayerRole = ({ role, secondary }: PlayerRoleProps) => {
+export const PlayerRole = ({ role, secondary, small }: PlayerRoleProps) => {
   if (typeof role !== "string") return null;
 
-  const width = 50;
-  const height = 50;
+  var width; 
+  var height; 
+  if (!small)
+    {   
+        width = 50;
+        height = 50;
+    }
+    else
+    {
+        width = 20;
+        height = 20;
+    }
 
   const remainingRoles = ["Damage", "Tank", "Support"].filter(
     (r) => r.toLowerCase() !== role.toLowerCase()
   );
 
   return (
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
     <Box sx={{ position: "relative", width: 50, height: 50 }}>
       <Avatar
         variant="square"
@@ -67,6 +85,7 @@ export const PlayerRole = ({ role, secondary }: PlayerRoleProps) => {
           />
         </>
       )}
+    </Box>
     </Box>
   );
 };
